@@ -180,41 +180,44 @@ class _SurvivalResultScreenState extends State<SurvivalResultScreen> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                Text(
-                                  '${widget.score}',
-                                  style: GoogleFonts.orbitron(
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white,
-                                    shadows: [
-                                      Shadow(
-                                        color: isWin
-                                            ? AppTheme.primaryCyan
-                                                .withOpacity(0.5)
-                                            : AppTheme.destructive
-                                                .withOpacity(0.5),
-                                        blurRadius: 20,
-                                      )
-                                    ],
+                            FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                textBaseline: TextBaseline.alphabetic,
+                                children: [
+                                  Text(
+                                    '${widget.score}',
+                                    style: GoogleFonts.orbitron(
+                                      fontSize: 64,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                      shadows: [
+                                        Shadow(
+                                          color: isWin
+                                              ? AppTheme.primaryCyan
+                                                  .withOpacity(0.5)
+                                              : AppTheme.destructive
+                                                  .withOpacity(0.5),
+                                          blurRadius: 20,
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 8),
-                                Text(
-                                  'AURA',
-                                  style: GoogleFonts.orbitron(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: isWin
-                                        ? AppTheme.primaryCyan
-                                        : AppTheme.destructive,
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'AURA',
+                                    style: GoogleFonts.orbitron(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: isWin
+                                          ? AppTheme.primaryCyan
+                                          : AppTheme.destructive,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
                         ),

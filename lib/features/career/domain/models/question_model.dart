@@ -4,6 +4,7 @@ class Question {
   final List<String> options;
   final int correctOptionIndex;
   final int points;
+  final List<String> explanations;
 
   const Question({
     required this.id,
@@ -11,5 +12,6 @@ class Question {
     required this.options,
     required this.correctOptionIndex,
     required this.points,
+    required this.explanations,
   });
 }
