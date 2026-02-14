@@ -4,12 +4,17 @@ import 'package:cybershow/features/auth/presentation/screens/splash_screen.dart'
 import 'package:cybershow/features/auth/presentation/screens/login_screen.dart';
 import 'package:cybershow/features/home/presentation/screens/home_screen.dart';
 import 'package:cybershow/features/career/presentation/screens/survival_lobby_screen.dart';
+import 'package:cybershow/features/career/presentation/screens/quiz_screen.dart';
 
 import 'package:cybershow/features/career/presentation/screens/survival_result_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/',
   routes: [
+    GoRoute(
+      path: '/quiz',
+      builder: (context, state) => const QuizScreen(),
+    ),
     GoRoute(
       path: '/survival/result',
       builder: (context, state) {
