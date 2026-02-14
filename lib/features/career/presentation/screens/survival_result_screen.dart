@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cybershow/core/theme/app_theme.dart';
+import 'package:cybershow/features/leaderboard/data/score_repository.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -34,15 +35,20 @@ class _SurvivalResultScreenState extends State<SurvivalResultScreen> {
     super.dispose();
   }
 
-  void _handleSave() {
+  void _handleSave() async {
     if (_nameController.text.trim().isEmpty) return;
 
-    // Simulate save
+    // Save to repository
+    await ScoreRepository().saveScore(
+      _nameController.text.trim(),
+      widget.score,
+    );
+
+    if (!mounted) return;
+
     setState(() {
       saved = true;
     });
-
-    // TODO: Implement actual storage (SharedPreferences)
 
     Future.delayed(const Duration(seconds: 2), () {
       if (mounted) widget.onHome();

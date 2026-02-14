@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:cybershow/features/home/presentation/screens/dashboard_tab.dart';
+import 'package:cybershow/features/leaderboard/presentation/ranking_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _tabs = [
     const DashboardTab(),
-    const Center(child: Text('Ranking (Em Breve)')),
+    const RankingScreen(),
     const Center(child: Text('Perfil (Em Breve)')),
   ];
 

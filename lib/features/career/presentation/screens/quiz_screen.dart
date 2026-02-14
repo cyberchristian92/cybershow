@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:animate_do/animate_do.dart';
 import 'package:cybershow/core/theme/app_theme.dart';
+import 'package:cybershow/features/career/data/questions_db.dart';
 import 'package:cybershow/features/career/domain/models/question_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,117 +16,8 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  // Questions from SurvivalGame.tsx
-  final List<Question> _questions = [
-    const Question(
-      id: '1',
-      text: "O que significa 'Phishing' no contexto de segurança?",
-      options: [
-        'Pescaria digital de dados sensíveis',
-        'Um tipo de vírus que ataca hardware',
-        'Software de proteção contra malware',
-        'Protocolo de rede seguro e criptografado'
-      ],
-      correctOptionIndex: 0,
-      points: 1000,
-      explanations: [
-        'CORRETO — Phishing é uma técnica de engenharia social que "pesca" dados confidenciais das vítimas através de e-mails, sites e mensagens falsas que imitam fontes confiáveis.',
-        'INCORRETO — Phishing não é um vírus de hardware. Vírus de hardware são extremamente raros e não se relacionam com engenharia social.',
-        'INCORRETO — Phishing é um ataque, não um software de proteção. Ferramentas anti-phishing existem, mas o termo em si descreve a ameaça.',
-        'INCORRETO — Phishing não é um protocolo de rede. Protocolos seguros como HTTPS protegem contra interceptação, mas não contra phishing diretamente.'
-      ],
-    ),
-    const Question(
-      id: '2',
-      text: 'Qual é a melhor prática para criar uma senha forte?',
-      options: [
-        'Usar sua data de nascimento',
-        'Sequência numérica como 123456',
-        'Misturar letras, números e símbolos com 12+ caracteres',
-        'Usar o nome do seu animal de estimação'
-      ],
-      correctOptionIndex: 2,
-      points: 2000,
-      explanations: [
-        'INCORRETO — Datas de nascimento são informações públicas facilmente descobertas em redes sociais, tornando a senha extremamente vulnerável.',
-        'INCORRETO — Sequências numéricas como 123456 são as primeiras combinações testadas em ataques de força bruta. É a senha mais comum do mundo.',
-        'CORRETO — Senhas fortes combinam letras maiúsculas/minúsculas, números e caracteres especiais (@#\$%), com pelo menos 12 caracteres. Quanto mais longa e aleatória, mais segura.',
-        'INCORRETO — Nomes de pets são facilmente descobertos em redes sociais. Atacantes usam informações pessoais públicas para adivinhar senhas.'
-      ],
-    ),
-    const Question(
-      id: '3',
-      text: 'O que é Autenticação de Dois Fatores (2FA)?',
-      options: [
-        'Ter duas senhas iguais em sites diferentes',
-        'Uma camada extra de verificação além da senha',
-        'Login automático em dois sites simultaneamente',
-        'Usar dois computadores ao mesmo tempo para acessar'
-      ],
-      correctOptionIndex: 1,
-      points: 5000,
-      explanations: [
-        'INCORRETO — Reutilizar senhas é uma prática perigosa. Se um site for comprometido, todos os outros ficam vulneráveis.',
-        'CORRETO — 2FA adiciona uma segunda camada de verificação (código SMS, app autenticador, biometria) além da senha. Mesmo que a senha seja roubada, o invasor precisa do segundo fator.',
-        'INCORRETO — Login simultâneo não tem relação com 2FA. A autenticação de dois fatores é sobre verificar sua identidade com dois métodos diferentes.',
-        'INCORRETO — Usar dois computadores não aumenta a segurança da autenticação. 2FA refere-se a dois métodos de verificação, não dois dispositivos.'
-      ],
-    ),
-    const Question(
-      id: '4',
-      text: 'O que é Ransomware?',
-      options: [
-        'Um antivírus gratuito',
-        'Um tipo de firewall avançado',
-        'Malware que sequestra dados e exige resgate',
-        'Uma ferramenta de backup na nuvem'
-      ],
-      correctOptionIndex: 2,
-      points: 10000,
-      explanations: [
-        'INCORRETO — Ransomware é o oposto de proteção. É um dos tipos mais destrutivos de malware existentes.',
-        'INCORRETO — Firewalls são ferramentas de proteção. Ransomware é uma ameaça que firewalls tentam bloquear.',
-        'CORRETO — Ransomware criptografa os arquivos da vítima e exige pagamento (geralmente em criptomoedas) para devolver o acesso. Ataques famosos incluem WannaCry e NotPetya.',
-        'INCORRETO — Ferramentas de backup são justamente a melhor defesa contra ransomware, mas não são a mesma coisa.'
-      ],
-    ),
-    const Question(
-      id: '5',
-      text: 'Qual o risco de usar Wi-Fi público sem proteção?',
-      options: [
-        'A bateria do celular acaba mais rápido',
-        'O celular pode superaquecer',
-        'Seus dados podem ser interceptados por atacantes',
-        'A velocidade da internet fica mais lenta'
-      ],
-      correctOptionIndex: 2,
-      points: 50000,
-      explanations: [
-        'INCORRETO — O consumo de bateria não é um risco de segurança relevante em redes Wi-Fi públicas.',
-        'INCORRETO — Superaquecimento não está relacionado à segurança de redes Wi-Fi.',
-        'CORRETO — Em redes Wi-Fi públicas, atacantes podem usar técnicas como Man-in-the-Middle (MitM) para interceptar dados não criptografados, incluindo senhas e informações bancárias. Use sempre VPN em redes públicas.',
-        'INCORRETO — Embora a velocidade possa ser afetada, o risco real é a interceptação de dados sensíveis por terceiros mal-intencionados.'
-      ],
-    ),
-    const Question(
-      id: '6', // Added ID 6
-      text: 'O que é Engenharia Social?',
-      options: [
-        'Construção de redes sociais',
-        'Manipulação psicológica para obter informações',
-        'Engenharia de software para redes',
-        'Design de interfaces de usuário'
-      ],
-      correctOptionIndex: 1,
-      points: 100000,
-      explanations: [
-        'INCORRETO — Engenharia Social não tem relação com a construção de plataformas de redes sociais.',
-        'CORRETO — Engenharia Social é a arte de manipular pessoas para que revelem informações confidenciais. Inclui técnicas como pretexting, baiting, tailgating e phishing. O fator humano é frequentemente o elo mais fraco da segurança.',
-        'INCORRETO — Engenharia de software é uma disciplina de desenvolvimento, não uma técnica de ataque.',
-        'INCORRETO — Design de interfaces (UI/UX) é uma área de desenvolvimento, sem relação com ataques de segurança.'
-      ],
-    ),
-  ];
+  // Questions are now loaded from lib/features/career/data/questions_db.dart
+  late final List<Question> _questions;
 
   static const int TIMER_SECONDS = 15;
 
@@ -148,6 +40,8 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
+    // Create a copy e shuffle it
+    _questions = List.from(questionsDatabase)..shuffle();
     _startTimer();
   }
 
