@@ -1,0 +1,74 @@
+﻿> Task :gradle:extractPluginRequests NO-SOURCE
+> Task :gradle:generatePluginAdapters UP-TO-DATE
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy UP-TO-DATE
+> Task :gradle:compileGroovyPlugins NO-SOURCE
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+.\gradlew.bat : 
+No linha:1 caractere:65
++ ... Android Studio\jbr'; 
+.\gradlew.bat 
+assembleDebug > 
+build_log.txt 2>&1
++                          
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+FAILURE: Build failed with 
+an exception.
+
+* Where:
+Build file 
+'H:\sync\obsidian\New 
+life\1-Projetos\CiÛncia da 
+computaþÒo UFPA\semestre 6\
+cybershow\android\app\build
+.gradle' line: 2
+
+* What went wrong:
+An exception occurred 
+applying plugin request 
+[id: 
+'com.android.application']
+> Failed to apply plugin 'c
+om.android.internal.applica
+tion'.
+   > Your project path 
+contains non-ASCII 
+characters. This will most 
+likely cause the build to 
+fail on Windows. Please 
+move your project to a 
+different directory. See 
+http://b.android.com/95744 
+for details. This warning 
+can be disabled by adding 
+the line 'android.overrideP
+athCheck=true' to 
+gradle.properties file in 
+the project directory.
+
+* Try:
+> Run with --stacktrace 
+option to get the stack 
+trace.
+> Run with --info or 
+--debug option to get more 
+log output.
+> Run with --scan to get 
+full insights.
+
+* Get more help at 
+https://help.gradle.org
+
+BUILD FAILED in 2s
+5 actionable tasks: 5 up-to-date

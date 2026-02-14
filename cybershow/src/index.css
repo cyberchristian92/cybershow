@@ -1,0 +1,103 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS */
+
+:root {
+  color-scheme: dark;
+}
+body {
+  background-color: #0a0a1a;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d2d44;
+}
+/* Glitch Effect Utilities */
+.glitch-text {
+  position: relative;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #00f0ff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #ec4899;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+  0% { clip: rect(38px, 9999px, 81px, 0); }
+  5% { clip: rect(65px, 9999px, 96px, 0); }
+  10% { clip: rect(11px, 9999px, 86px, 0); }
+  15% { clip: rect(5px, 9999px, 14px, 0); }
+  20% { clip: rect(56px, 9999px, 2px, 0); }
+  25% { clip: rect(21px, 9999px, 69px, 0); }
+  30% { clip: rect(84px, 9999px, 73px, 0); }
+  35% { clip: rect(96px, 9999px, 11px, 0); }
+  40% { clip: rect(25px, 9999px, 66px, 0); }
+  45% { clip: rect(59px, 9999px, 19px, 0); }
+  50% { clip: rect(9px, 9999px, 57px, 0); }
+  55% { clip: rect(10px, 9999px, 5px, 0); }
+  60% { clip: rect(32px, 9999px, 46px, 0); }
+  65% { clip: rect(78px, 9999px, 34px, 0); }
+  70% { clip: rect(45px, 9999px, 12px, 0); }
+  75% { clip: rect(13px, 9999px, 89px, 0); }
+  80% { clip: rect(67px, 9999px, 23px, 0); }
+  85% { clip: rect(91px, 9999px, 6px, 0); }
+  90% { clip: rect(4px, 9999px, 78px, 0); }
+  95% { clip: rect(53px, 9999px, 45px, 0); }
+  100% { clip: rect(29px, 9999px, 92px, 0); }
+}
+@keyframes glitch-anim2 {
+  0% { clip: rect(18px, 9999px, 91px, 0); }
+  5% { clip: rect(5px, 9999px, 16px, 0); }
+  10% { clip: rect(91px, 9999px, 6px, 0); }
+  15% { clip: rect(35px, 9999px, 4px, 0); }
+  20% { clip: rect(16px, 9999px, 2px, 0); }
+  25% { clip: rect(81px, 9999px, 9px, 0); }
+  30% { clip: rect(4px, 9999px, 3px, 0); }
+  35% { clip: rect(6px, 9999px, 1px, 0); }
+  40% { clip: rect(25px, 9999px, 66px, 0); }
+  45% { clip: rect(9px, 9999px, 9px, 0); }
+  50% { clip: rect(9px, 9999px, 7px, 0); }
+  55% { clip: rect(10px, 9999px, 5px, 0); }
+  60% { clip: rect(2px, 9999px, 6px, 0); }
+  65% { clip: rect(8px, 9999px, 4px, 0); }
+  70% { clip: rect(5px, 9999px, 2px, 0); }
+  75% { clip: rect(3px, 9999px, 9px, 0); }
+  80% { clip: rect(7px, 9999px, 3px, 0); }
+  85% { clip: rect(1px, 9999px, 6px, 0); }
+  90% { clip: rect(4px, 9999px, 8px, 0); }
+  95% { clip: rect(3px, 9999px, 5px, 0); }
+  100% { clip: rect(9px, 9999px, 2px, 0); }
+}
