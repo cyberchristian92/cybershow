@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 80,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/logo.png'),
+                          image: AssetImage('assets/logo.jpg'),
                           fit: BoxFit.contain), // Assuming asset
                     ),
                     child: const Icon(LucideIcons.shield,

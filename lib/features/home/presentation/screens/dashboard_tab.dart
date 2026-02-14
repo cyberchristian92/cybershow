@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DashboardTab extends StatelessWidget {
   const DashboardTab({super.key});
@@ -155,8 +156,12 @@ class DashboardTab extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkWell(
                         borderRadius: BorderRadius.circular(12),
-                        onTap: () {
-                          // Open LinkTree logic
+                        onTap: () async {
+                          final url =
+                              Uri.parse('https://linktr.ee/cyberchristian');
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          }
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(16),

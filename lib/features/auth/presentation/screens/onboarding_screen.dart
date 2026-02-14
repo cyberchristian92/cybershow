@@ -97,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         height: 32,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/logo.png'),
+                              image: AssetImage('assets/logo.jpg'),
                               fit: BoxFit.contain), // Assuming we have this
                         ),
                         child: const Icon(LucideIcons.shield,

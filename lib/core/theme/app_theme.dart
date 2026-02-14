@@ -6,6 +6,10 @@ class AppTheme {
   static const Color zinc950 = Color(0xFF09090B); // Background Dark
   static const Color zinc900 = Color(0xFF18181B); // Card Dark
   static const Color zinc800 = Color(0xFF27272A); // Border Dark
+  static const Color zinc700 = Color(0xFF3F3F46);
+  static const Color zinc600 = Color(0xFF52525B);
+  static const Color zinc500 = Color(0xFF71717A);
+  static const Color zinc400 = Color(0xFFA1A1AA);
   static const Color zinc50 = Color(0xFFFAFAFA); // Text Light
 
   static const Color primaryCyan = Color(0xFF00F0FF); // Neon Cyan
